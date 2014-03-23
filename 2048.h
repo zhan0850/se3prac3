@@ -6,3 +6,5 @@ int read_input();
 #define GO_DOWN 8
 #define GO_NOWHERE 0
 #define INVALID_INPUT -1
+
+int tilt_board_left(int size,int **board);
