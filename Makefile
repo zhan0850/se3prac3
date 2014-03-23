@@ -1,4 +1,5 @@
 OBJS=	main.o \
+	tilt.o \
 	keyboard.o
 
 all:	2048
