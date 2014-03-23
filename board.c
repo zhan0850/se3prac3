@@ -20,7 +20,7 @@ int **board_create(int size)
 int board_rotate_90(int size,int **board)
 {
   // make sure size of board is sensible
-  if (size<1||size>255) return NULL;
+  if (size<1||size>255) return -1;
   
   int temp_board[size][size];
   int x,y;
@@ -39,13 +39,13 @@ int board_rotate_90(int size,int **board)
 int board_rotate_180(int size,int **board)
 {
   board_rotate_90(size,board);
-  board_rotate_90(size,board);
+  return board_rotate_90(size,board);
 }
 
 int board_rotate_270(int size,int **board)
 {
   board_rotate_180(size,board);
-  board_rotate_90(size,board);
+  return board_rotate_90(size,board);
 }
 
 int tilt_board_right(int size,int **board)
