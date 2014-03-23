@@ -1,4 +1,5 @@
-OBJS=	board.o \
+OBJS=	tilt.o \
+	board.o \
 	keyboard.o
 
 all:	2048
@@ -11,3 +12,6 @@ all:	2048
 
 test:	test.o
 	gcc -Wall -g -o test test.o $(OBJS)
+
+clean:
+	rm 2048 test *.o
