@@ -1,6 +1,16 @@
 int combine_tiles(int length,int *line,int offset);
 int tilt_through_empty_space(int length, int *line);
 
+int tilt_board_left(int size,int **board)
+{
+  // make sure size of board is sensible
+  if (size<1||size>255) return -1;
+  
+  int i;
+  for(i=0;i<size;i++) tilt_line_left(size,board[i]);
+  return 0;
+}
+
 /*
   Takes a list of <length> integers, and attempts to shift them left
   according to the rules of 2048.
