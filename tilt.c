@@ -59,8 +59,15 @@ int combine_tiles(int length,int *line,int offset)
 
 int tilt_through_empty_space(int length, int *line)
 {
+  int i;
+
+  // Check if line is empty -> nothing to do
+  int sum=0;
+  for(i=0;i<length;i++) sum+=line[i];
+  if (!sum) return 0;
+
+  // Shift non-empty line left
   while(!line[0]) {
-    int i;
     for(i=0;i<(length-1);i++) line[i]=line[i+1];
   }
   return 0;
