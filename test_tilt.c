@@ -6,7 +6,7 @@ int ttl_vector(int i1,int i2,int i3,int i4,char *msg,
 {
   int list[4]={i1,i2,i3,i4};
   printf("%s - ",msg); fflush(stdout);
-  tilt_board_left(4,list);
+  tilt_line_left(4,list);
   int i;
   if ((list[0]!=o1)||(list[1]!=o2)||(list[2]!=o3)||(list[3]!=o4))
     {
