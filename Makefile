@@ -16,3 +16,6 @@ test_tilt:	test_tilt.o $(OBJS) Makefile 2048.h
 
 test:	test_tilt
 	./test_tilt
+
+clean:
+	rm *.o 2048 test_tilt
