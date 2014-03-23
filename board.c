@@ -26,7 +26,7 @@ int board_display(int size,int **board)
   
   for(y=0;y<size;y++) {    
     for(x=0;x<size;x++) {
-      printf("[% 5d]",board[x][y]);
+      printf("[% 5d]",board[y][x]);
     }
     printf("\n");
   }
