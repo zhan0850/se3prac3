@@ -111,10 +111,10 @@ int board4_vector_test(int i1,int i2,int i3,int i4,int i5,
   board[1]=alloca(sizeof(int)*4);
   board[2]=alloca(sizeof(int)*4);
   board[3]=alloca(sizeof(int)*4);
-  board[0][0]=i1; board[1][0]=i2; board[2][0]=i3; board[2][0]=i4;
-  board[0][1]=i5; board[1][1]=i6; board[2][1]=i7; board[2][1]=i8;
-  board[0][2]=i9; board[1][2]=i10; board[2][2]=i11; board[2][2]=i12;
-  board[0][3]=i13; board[1][3]=i14; board[2][3]=i15; board[2][3]=i16;
+  board[0][0]=i1; board[1][0]=i2; board[2][0]=i3; board[3][0]=i4;
+  board[0][1]=i5; board[1][1]=i6; board[2][1]=i7; board[3][1]=i8;
+  board[0][2]=i9; board[1][2]=i10; board[2][2]=i11; board[3][2]=i12;
+  board[0][3]=i13; board[1][3]=i14; board[2][3]=i15; board[3][3]=i16;
 
   if (msg) printf("%s - ",msg); 
   else {
