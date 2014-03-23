@@ -13,4 +13,4 @@ int tilt_board_up(int size,int **board);
 int tilt_board_down(int size,int **board);
 int **board_create(int size);
 int board_display(int size,int **board);
-
+int board_spawn_tile(int size,int **board);
