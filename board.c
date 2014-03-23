@@ -17,6 +17,22 @@ int **board_create(int size)
   return board;
 }
 
+int board_display(int size,int **board)
+{
+  // make sure size of board is sensible
+  if (size<1||size>255) return -1;
+  
+  int x,y;
+  
+  for(y=0;y<size;y++) {    
+    for(x=0;x<size;x++) {
+      printf("[% 5d]",board[x][y]);
+    }
+    printf("\n");
+  }
+  return 0;
+}
+
 int board_rotate_90(int size,int **board)
 {
   // make sure size of board is sensible
