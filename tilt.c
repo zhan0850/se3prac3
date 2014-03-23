@@ -1,5 +1,6 @@
 int combine_tiles(int length,int *line,int offset);
 int tilt_through_empty_space(int length, int *line);
+int tilt_line_left(int length,int *line);
 
 int tilt_board_left(int size,int **board)
 {
