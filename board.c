@@ -100,26 +100,26 @@ int board_rotate_270(int size,int **board)
   return board_rotate_90(size,board);
 }
 
-int tilt_board_right(int size,int **board)
-{
-  board_rotate_180(size,board);
-  tilt_board_left(size,board);
-  board_rotate_180(size,board);
-  return 0;
-}
-
-int tilt_board_up(int size,int **board)
-{
-  board_rotate_90(size,board);
-  tilt_board_left(size,board);
-  board_rotate_270(size,board);
-  return 0;
-}
-
 int tilt_board_down(int size,int **board)
 {
+  board_rotate_180(size,board);
+  tilt_board_up(size,board);
+  board_rotate_180(size,board);
+  return 0;
+}
+
+int tilt_board_right(int size,int **board)
+{
+  board_rotate_90(size,board);
+  tilt_board_up(size,board);
   board_rotate_270(size,board);
-  tilt_board_left(size,board);
+  return 0;
+}
+
+int tilt_board_left(int size,int **board)
+{
+  board_rotate_270(size,board);
+  tilt_board_up(size,board);
   board_rotate_90(size,board);
   return 0;
 }

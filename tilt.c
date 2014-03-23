@@ -1,6 +1,11 @@
 #include "2048.h"
 
-int tilt_board_left(int size,int **board)
+/*
+  Tilting the board is the trival case, since the first index of board
+  is the x position, so the lists of values are columns, with the head
+  at the top.
+*/
+int tilt_board_up(int size,int **board)
 {
   // make sure size of board is sensible
   if (size<1||size>255) return -1;
