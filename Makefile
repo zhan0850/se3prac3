@@ -10,3 +10,9 @@ all:	2048
 
 2048:	$(OBJS)
 	gcc -Wall -g -o 2048 $(OBJS)
+
+test_tilt:	test_tilt.o $(OBJS) Makefile 2048.h
+	gcc -Wall -g -o test_tilt test_tilt.o
+
+test:	test_tilt
+	./test_tilt
