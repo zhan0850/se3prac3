@@ -23,13 +23,9 @@ int ttl_vector(int i1,int i2,int i3,int i4,char *msg,
 
 int test_tilt_left()
 {
-  int length=4;
-  int list[4];
-
   ttl_vector(0,0,0,0,"Empty list is empty after shift",0,0,0,0);
   ttl_vector(1,0,0,0,"Value on left stays on left after shift",1,0,0,0);
   ttl_vector(0,0,0,1,"Value on right shifts to left edge after shift",1,0,0,0);
-
 }
 
 int main(int argc,char **argv)
