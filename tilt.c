@@ -36,7 +36,7 @@ int tilt_line_left(int length,int *line)
   // left.
   int i;
   for(i=0;i<(length-1);i++)
-    tilt_through_empty_space(length,&line[i]);
+    tilt_through_empty_space(length-i,&line[i]);
   
   // Combine pairs
   for(i=0;i<(length-1);i++) {
