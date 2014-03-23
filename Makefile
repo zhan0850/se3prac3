@@ -3,7 +3,7 @@ OBJS=	main.o \
 
 all:	2048
 
-%.o:	%.c
+%.o:	%.c Makefile 2048.h
 	gcc -Wall -g -c $<
 
 2048:	$(OBJS)
