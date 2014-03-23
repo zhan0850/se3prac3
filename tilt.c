@@ -1,3 +1,6 @@
+int combine_tiles(int length,int *line,int offset);
+int tilt_through_empty_space(int length, int *line);
+
 /*
   Takes a list of <length> integers, and attempts to shift them left
   according to the rules of 2048.
