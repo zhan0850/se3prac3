@@ -188,6 +188,18 @@ int test_rotate_board()
 		     "Rotate 4x4 board right (+90)",
 		     13,9,5,1,14,10,6,2,15,11,7,3,16,12,8,4,
 		     board_rotate_90);
+
+  board4_vector_test(1,0,0,0,
+		     0,0,0,0,
+		     0,0,0,0,
+		     0,0,0,0,
+		     "Rotate 4x4 board right (+90)",
+		     0,0,0,1,
+		     0,0,0,0,
+		     0,0,0,0,
+		     0,0,0,0,
+		     tilt_board_right);
+
   return 0;
 }
 
