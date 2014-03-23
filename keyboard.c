@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <strings.h>
 #include "2048.h"
 
 int parse_input(char *line)
