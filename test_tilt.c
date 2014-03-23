@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include "2048.h"
 
+#include "tilt.c"
+#include "board.c"
+
 int line_vector_test(int i1,int i2,int i3,int i4,char *msg,
 		int o1,int o2,int o3,int o4, int (*func)(int,int *))
 {
@@ -28,7 +31,11 @@ int line_vector_test(int i1,int i2,int i3,int i4,char *msg,
 int board_vector_test(int i1,int i2,int i3,int i4,char *msg,
 		      int o1,int o2,int o3,int o4, int (*func)(int,int **))
 {
-  int *board[2]={{i1,i2},{i3,i4}};
+  int **board=alloca(2*sizeof(int*));
+  board[0]=alloca(sizeof(int)*2);
+  board[1]=alloca(sizeof(int)*2);
+  board[0][0]=i1; board[0][1]=i2; board[1][0]=i3; board[1][1]=i4;
+
   if (msg) printf("%s - ",msg); 
   else {
     printf("Board operation on {{%d,%d},{%d,%d}} yields {{%d,%d},{%d,%d}} - ",
@@ -74,15 +81,14 @@ int test_tilt_left()
 
 int test_rotate_board()
 {
+  board_vector_test(1,2,3,4,"Rotate board left",2,4,1,3,board_rotate_90);
   return 0;
 }
 
 int main(int argc,char **argv)
 {
   int e=0;
-  e|=test_rotate_board();
   e|=test_tilt_left();
+  e|=test_rotate_board();
   return e;
 }
-
-#include "tilt.c"
