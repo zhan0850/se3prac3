@@ -25,6 +25,32 @@ int line_vector_test(int i1,int i2,int i3,int i4,char *msg,
   
 }
 
+int board_vector_test(int i1,int i2,int i3,int i4,char *msg,
+		      int o1,int o2,int o3,int o4, int (*func)(int,int **))
+{
+  int *board[2]={{i1,i2},{i3,i4}};
+  if (msg) printf("%s - ",msg); 
+  else {
+    printf("Board operation on {{%d,%d},{%d,%d}} yields {{%d,%d},{%d,%d}} - ",
+	     i1,i2,i3,i4,o1,o2,o3,o4);
+  }
+  fflush(stdout);
+  func(2,board);
+  if ((board[0][0]!=o1)||(board[0][1]!=o2)
+      ||(board[1][0]!=o3)||(board[1][1]!=o4))
+    {
+      printf("FAILED: {{%d,%d},{%d,%d}} became {{%d,%d},{%d,%d}} instead of"
+	     " {{%d,%d},{%d,%d}}\n",
+	     i1,i2,i3,i4,
+	     board[0][0],board[0][1],board[1][0],board[1][1],
+	     o1,o2,o3,o4);
+      return -1;
+    } 
+  printf("PASSED.\n");
+  return 0;
+}
+
+
 int ttl_vector(int i1,int i2,int i3,int i4,char *msg,
 	       int o1,int o2,int o3,int o4)
 {
@@ -46,11 +72,17 @@ int test_tilt_left()
   return e;
 }
 
+int test_rotate_board()
+{
+  return 0;
+}
+
 int main(int argc,char **argv)
 {
-
-  return test_tilt_left();
-
+  int e=0;
+  e|=test_rotate_board();
+  e|=test_tilt_left();
+  return e;
 }
 
 #include "tilt.c"
