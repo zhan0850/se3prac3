@@ -1,5 +1,6 @@
 OBJS=	main.o \
 	tilt.o \
+	board.o \
 	keyboard.o
 
 all:	2048
