@@ -30,7 +30,8 @@ int tilt_line_left(int length,int *line)
   if (length<1||length>255) return -1;
 
   // Beginning at the left, try to move the rest of the tiles
-  // left. No combining yet.
+  // left.
+  int i;
   for(i=0;i<(length-1);i++)
     tilt_through_empty_space(length,&line[i]);
   
