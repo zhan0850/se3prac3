@@ -1,4 +1,5 @@
 OBJS=	main.o \
+	board.o \
 	keyboard.o
 
 all:	2048
