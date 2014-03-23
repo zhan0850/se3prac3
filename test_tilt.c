@@ -81,7 +81,7 @@ int test_tilt_left()
 
 int test_rotate_board()
 {
-  board_vector_test(1,2,3,4,"Rotate board right (+90)",1,3,2,4,board_rotate_90);
+  board_vector_test(1,2,3,4,"Rotate board right (+90)",3,1,4,2,board_rotate_90);
   board_vector_test(1,2,3,4,"Rotate board 180",4,3,2,1,board_rotate_180);
   board_vector_test(1,2,3,4,"Rotate board left (+270)",2,4,1,3,board_rotate_270);
   return 0;
