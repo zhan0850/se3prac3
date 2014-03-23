@@ -80,11 +80,11 @@ int board_rotate_90(int size,int **board)
   // rotate into temp_board
   for(x=0;x<size;x++) 
     for(y=0;y<size;y++)
-      temp_board[y][x]=temp_board[x][y];
+      temp_board[y][x]=board[x][y];
   // copy temp board back over board
   for(x=0;x<size;x++) 
     for(y=0;y<size;y++)
-      board[x][y]=temp_board[y][x];
+      board[x][y]=temp_board[x][y];
   return 0;
 }
 
