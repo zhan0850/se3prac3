@@ -8,3 +8,9 @@ int read_input();
 #define INVALID_INPUT -1
 
 int tilt_board_left(int size,int **board);
+int tilt_board_right(int size,int **board);
+int tilt_board_up(int size,int **board);
+int tilt_board_down(int size,int **board);
+int **board_create(int size);
+int board_display(int size,int **board);
+
