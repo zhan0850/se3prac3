@@ -27,5 +27,6 @@ int main(int argc,char **argv)
     default:
       printf("Invalid input. Type l, r, u or d to tilt board.\n");
       break;
+    }
   }
 }
