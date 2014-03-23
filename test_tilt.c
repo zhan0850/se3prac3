@@ -122,7 +122,7 @@ int board4_vector_test(int i1,int i2,int i3,int i4,int i5,
 	   i1,i2,i3,i4,o1,o2,o3,o4);
   }
   fflush(stdout);
-  func(3,board);
+  func(4,board);
   if (
       (board[0][0]!=o1)||(board[1][0]!=o2)||(board[2][0]!=o3)||(board[3][0]!=o4)||
       (board[0][1]!=o5)||(board[1][1]!=o6)||(board[2][1]!=o7)||(board[3][1]!=o8)||
@@ -183,6 +183,11 @@ int test_rotate_board()
 		     9,8,7,6,5,4,3,2,1,board_rotate_180);
   board3_vector_test(1,2,3,4,5,6,7,8,9,"Rotate 3x3 board left (+270)",
 		     3,6,9,2,5,8,1,4,7,board_rotate_270);
+
+  board4_vector_test(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+		     "Rotate 4x4 board right (+90)",
+		     13,9,5,1,14,10,6,2,15,11,7,3,16,12,8,4,
+		     board_rotate_90);
   return 0;
 }
 
