@@ -21,6 +21,25 @@ int tilt_line_left(int length,int *line)
     tilt_through_empty_space(length,&line[i]);
   
   // Combine pairs
+  for(i=0;i<(length-1);i++) {
+    if (line[i]==line[i+1]) {
+      combine_tiles(length,line,i);
+    }
+  }
+
+  return 0;
+}
+
+int combine_tiles(int length,int *line,int offset)
+{
+  int i;
+  // calculate sum
+  line[offset]+=line[offset+1];
+  // shift tiles left
+  for(i=offset+1;i<(length-1);i++) line[i]=line[i+1];
+  // insert empty tile on right edge
+  line[length-1]=0;
+  return 0;
 }
 
 int tilt_through_empty_space(int length, int *line)
