@@ -47,7 +47,6 @@ void test_tilt_down()
 	
 }
 
-
 void test_board_spawn_tile()
 {
 	//initialise input array
@@ -85,9 +84,7 @@ void test_check_lose()
 void test_check_win()
 {
 	
-	
 }
-
 
 /*********************************************************************************
 int ttl_vector(int i1,int i2,int i3,int i4,char *msg,
