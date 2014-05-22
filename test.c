@@ -264,7 +264,113 @@ void test_board_spawn_tile()
 
 void test_tile_counter()
 {
-	//
+	//initialise board
+	int size = 4;
+	int **board = board_create(size);
+	int i, output, expected;
+	
+	//begin testing
+	printf("Test Tile Counter:\n");
+	
+	//test case
+	printf("Test Case: test initial value, expected output is 0\n");
+	output = tile_counter(0);
+	expected = 0;
+	if(output == expected)
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("FAILED! Expected output is %d, but actual output is %d.\n", expected, output);
+	
+	//test case
+	printf("Test Case: test addition, expected output is 1\n");
+	output = tile_counter(1);
+	expected = 1;
+	if(output == expected)
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("FAILED! Expected output is %d, but actual output is %d.\n", expected, output);
+	tile_counter(-tile_counter(0));
+	
+	//test case
+	printf("Test Case: test addition in board_spawn_tile function, expected output is 10\n");
+	for(i = 0; i < 10; i++) 
+		board_spawn_tile(size, board);
+	output = tile_counter(0);
+	expected = 10;
+	if(output == expected)
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("FAILED! Expected output is %d, but actual output is %d.\n", expected, output);
+	reset(size, board);
+	
+	//test case
+	printf("Test Case: test substraction when reset game, expected output is 0\n");
+	output = tile_counter(-tile_counter(0));
+	expected = 0;
+	if(output == expected)
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("FAILED! Expected output is %d, but actual output is %d.\n", expected, output);
+	
+	//test case
+	printf("Test Case: test substraction in tilt_board_left function, expected output is 1\n");
+	board[0][0] = board[1][0] = 2;
+	tile_counter(2);
+	tilt_board_left(size, board);
+	output = tile_counter(0);
+	expected = 1;
+	if(output == expected)
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("FAILED! Expected output is %d, but actual output is %d.\n", expected, output);
+	reset(size, board);
+	tile_counter(-tile_counter(0));
+	
+	//test case
+	printf("Test Case: test substraction in tilt_board_right function, expected output is 1\n");
+	board[0][0] = board[1][0] = 2;
+	tile_counter(2);
+	tilt_board_right(size, board);
+	output = tile_counter(0);
+	expected = 1;
+	if(output == expected)
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("FAILED! Expected output is %d, but actual output is %d.\n", expected, output);
+	reset(size, board);
+	tile_counter(-tile_counter(0));
+	
+	//test case
+	printf("Test Case: test substraction in tilt_board_up function, expected output is 1\n");
+	board[0][0] = board[0][1] = 2;
+	tile_counter(2);
+	tilt_board_up(size, board);
+	output = tile_counter(0);
+	expected = 1;
+	if(output == expected)
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("FAILED! Expected output is %d, but actual output is %d.\n", expected, output);
+	reset(size, board);
+	tile_counter(-tile_counter(0));
+	
+	//test case
+	printf("Test Case: test substraction in tilt_board_down function, expected output is 1\n");
+	board[0][0] = board[0][1] = 2;
+	tile_counter(2);
+	tilt_board_down(size, board);
+	output = tile_counter(0);
+	expected = 1;
+	if(output == expected)
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("FAILED! Expected output is %d, but actual output is %d.\n", expected, output);
+	reset(size, board);
+	tile_counter(-tile_counter(0));
+	
+	//done testing, deallocate memory
+	free(board);
+	printf("\n");
 }
 
 
