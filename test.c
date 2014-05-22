@@ -1,5 +1,85 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <time.h>
 #include "2048.h"
+
+
+int main(int argc,char **argv)
+{
+	int e=0;
+	
+	test_tilt_left();
+	test_tilt_right();
+	test_tilt_up();
+	test_tilt_down();
+	
+	test_board_spawn_tile();
+	test_tile_counter();
+	
+	test_check_lose();
+	test_check_win();
+	
+	return e;
+}
+
+
+void test_tilt_left()
+{
+	
+}
+
+
+void test_tilt_right()
+{
+	
+}
+
+
+void test_tilt_up()
+{
+	
+}
+
+
+void test_tilt_down()
+{
+	
+}
+
+
+void test_board_spawn_tile()
+{
+	
+}
+
+
+void test_tile_counter()
+{
+	
+}
+
+
+void test_check_lose()
+{
+	
+}
+
+
+void test_check_win()
+{
+	
+	
+}
+
+
+/*********************************************************************************
+int ttl_vector(int i1,int i2,int i3,int i4,char *msg,
+               int o1,int o2,int o3,int o4)
+{
+  return line_vector_test(i1,i2,i3,i4,msg,o1,o2,o3,o4,tilt_line_left);
+}
+
 
 int line_vector_test(int i1,int i2,int i3,int i4,char *msg,
                 int o1,int o2,int o3,int o4, int (*func)(int,int *))
@@ -24,31 +104,4 @@ int line_vector_test(int i1,int i2,int i3,int i4,char *msg,
   return 0;
   
 }
-
-int ttl_vector(int i1,int i2,int i3,int i4,char *msg,
-               int o1,int o2,int o3,int o4)
-{
-  return line_vector_test(i1,i2,i3,i4,msg,o1,o2,o3,o4,tilt_line_left);
-}
-
-int test_tilt_left()
-{
-  int e=0;
-  e|=ttl_vector(0,0,0,0,"Empty list is empty after shift",0,0,0,0);
-  e|=ttl_vector(1,0,0,0,"Value on left stays on left after shift",1,0,0,0);
-  e|=ttl_vector(0,0,0,1,"Value on right shifts to left edge after shift",1,0,0,0);
-  e|=ttl_vector(0,0,1,0,"Value in middle shifts to left edge after shift",1,0,0,0);
-  e|=ttl_vector(1,2,4,8,"Distinct values don't combine",1,2,4,8);
-  e|=ttl_vector(1,1,1,1,"Combinations don't cascade",2,2,0,0);
-  e|=ttl_vector(0,0,1,1,NULL,2,0,0,0);
-  e|=ttl_vector(4,0,1,1,NULL,4,2,0,0);
-  e|=ttl_vector(2,0,1,1,NULL,2,2,0,0);
-  return e;
-}
-
-int main(int argc,char **argv)
-{
-  int e=0;
-  e|=test_tilt_left();
-  return e;
-}
+*/
