@@ -50,7 +50,23 @@ void test_tilt_down()
 
 void test_board_spawn_tile()
 {
+	//initialise input array
+	int size = 1;
+	int **input = board_create(size);
 	
+	//begin testing
+	printf("Test Spawn Tile:\n");
+	
+	board_spawn_tile(size, input);
+	
+	if(input[0][0] == 2 || input[0][0] == 4)
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("FAILED! Expected output is 2 or 4, but actual output is %d.\n", input[0][0]);
+	
+	//done testing, reset counter, deallocate memory
+	free(input);
+	printf("\n");
 }
 
 
