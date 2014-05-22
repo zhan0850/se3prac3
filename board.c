@@ -50,7 +50,5 @@ void board_spawn_tile(int size,int **board) {
 		board[col][row] = 4;
 	else
 		board[col][row] = 2;
-		
-	tile_counter(1);
 	
 }
