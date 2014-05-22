@@ -84,7 +84,9 @@ int check_lose(int size, int **board)
 {	
 	int dead = 0;
 	
-	int tiles = tile_counter(0); printf("No. of tiles %d\n", tiles);
+	int tiles = tile_counter(0); 
+	//printf("No. of tiles %d\n", tiles);
+	
 	if(tiles == size*size) {	//game is over only if board is full
 		dead = 1;
 		
