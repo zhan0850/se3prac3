@@ -73,19 +73,142 @@ void test_tilt_left()
 
 void test_tilt_right()
 {
+	//initialise input array and output array
+	int size = 4;
+	int **input = board_create(size);
+	int **output = board_create(size);
+	int i, j;
 	
+	//begin testing
+	printf("Tilt Right Tests:\n");
+	
+	//empty board
+	tilt_test("Test Case: empty board is empty after shift ", tilt_board_right, size, input, output);
+	reset(size, input);
+	reset(size, output);
+		
+	//values on left, in middle, and on right
+	for(i = 0; i < size; i++) {
+		input[i][i] = 2;
+		output[3][i] = 2;
+	}
+	tilt_test("Test Case: values on left, in middle, and on right move to right be after shift ", tilt_board_right, size, input, output);
+	reset(size, input);
+	reset(size, output);
+	
+	//combining tiles
+	for(i = 0; i < size; i++) {
+		input[i][0] = output[i][0] = (i+1)*2;
+		for(j = 1; j < size; j++) {
+			input[i][j] = 2;
+			output[2][j] = output[3][j] = 4;
+		}
+	}
+	input[0][2] = input[0][3] = input[1][3] = 4;
+	input[1][2] = 0;
+	output[2][3] = 8;
+	tilt_test("Test Case: same values combine, distinct values don't ", tilt_board_right, size, input, output);
+	reset(size, input);
+	reset(size, output);
+	
+	//done testing, deallocate memory
+	free(input);
+	free(output);
+	printf("\n");
 }
 
 
 void test_tilt_up()
 {
+	//initialise input array and output array
+	int size = 4;
+	int **input = board_create(size);
+	int **output = board_create(size);
+	int i, j;
 	
+	//begin testing
+	printf("Tilt Up Tests:\n");
+	
+	//empty board
+	tilt_test("Test Case: empty board is empty after shift ", tilt_board_up, size, input, output);
+	reset(size, input);
+	reset(size, output);
+		
+	//values on left, in middle, and on right
+	for(i = 0; i < size; i++) {
+		input[i][i] = 2;
+		output[i][0] = 2;
+	}
+	tilt_test("Test Case: values on left, in middle, and on right move to top be after shift ", tilt_board_up, size, input, output);
+	reset(size, input);
+	reset(size, output);
+	
+	//combining tiles
+	for(i = 0; i < size; i++) {
+		input[0][i] = output[0][i] = (i+1)*2;
+		for(j = 1; j < size; j++) {
+			input[j][i] = 2;
+			output[j][0] = output[j][1] = 4;
+		}
+	}
+	input[2][0] = input[3][0] = input[3][1] = 4;
+	input[2][1] = 0;
+	output[3][0] = 8;
+	tilt_test("Test Case: same values combine, distinct values don't ", tilt_board_up, size, input, output);
+	reset(size, input);
+	reset(size, output);
+	
+	//done testing, deallocate memory
+	free(input);
+	free(output);
+	printf("\n");
 }
 
 
 void test_tilt_down()
 {
+	//initialise input array and output array
+	int size = 4;
+	int **input = board_create(size);
+	int **output = board_create(size);
+	int i, j;
 	
+	//begin testing
+	printf("Tilt Down Tests:\n");
+	
+	//empty board
+	tilt_test("Test Case: empty board is empty after shift ", tilt_board_down, size, input, output);
+	reset(size, input);
+	reset(size, output);
+	
+	//values on left, in middle, and on right
+	for(i = 0; i < size; i++) {
+		input[i][i] = 2;
+		output[i][3] = 2;
+	}
+	tilt_test("Test Case: values on left, in middle, and on right move to bottom be after shift ", tilt_board_down, size, input, output);
+	reset(size, input);
+	reset(size, output);
+	
+	//combining tiles
+	for(i = 0; i < size; i++) {
+		input[0][i] = output[0][i] = (i+1)*2;
+		for(j = 1; j < size; j++) {
+			input[j][i] = 2;
+			output[j][2] = output[j][3] = 4;
+		}
+	}
+	input[2][0] = input[3][0] = input[3][1] = 4;
+	input[2][1] = 0;
+	output[3][2] = 8;
+	tilt_test("Test Case: same values combine, distinct values don't ", tilt_board_down, size, input, output);
+	reset(size, input);
+	reset(size, output);
+	
+	//done testing, deallocate memory
+	free(input);
+	free(output);
+	printf("\n");
 }
 
 
