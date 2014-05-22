@@ -376,7 +376,89 @@ void test_tile_counter()
 
 void test_check_lose()
 {
+	//initialise input array
+	int size = 4;
+	int **input = board_create(size);
+	int i, j, output;
 	
+	//begin testing
+	printf("Test Lose:\n");
+	
+	//board not full
+	printf("Test Case: board is not full, game is not over\n");
+	for(i = 0; i < size*size-1; i++)
+		board_spawn_tile(size, input);
+	printf("Input:\n");
+	board_display(size, input);
+	
+	output = check_lose(size, input);
+	if(!output) 
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("FAILED! Expected output is 0 but actual output is 1.\n");
+	
+	reset(size, input);
+	tile_counter(-tile_counter(0));
+	
+	//board full, same value in a row
+	printf("Test Case: board full, same value in a row consecutively, game not over\n");
+	for(i = 0; i < size; i++)
+		for(j = 0; j < size; j ++)
+			input[i][j] = (i+1)*(j+1);
+	tile_counter(size*size);
+	input[1][2] = input[2][2];
+	printf("Input:\n");
+	board_display(size, input);
+	
+	output = check_lose(size, input);
+	if(!output) 
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("FAILED! Expected output is 0 but actual output is 1.\n");
+	
+	reset(size, input);
+	tile_counter(-tile_counter(0));
+	
+	//board full, same value in a column
+	printf("Test Case: board full, same value in a column consecutively, game not over\n");
+	for(i = 0; i < size; i++)
+		for(j = 0; j < size; j ++)
+			input[i][j] = (i+1)*(j+1);
+	tile_counter(size*size);
+	input[2][1] = input[2][2];
+	printf("Input:\n");
+	board_display(size, input);
+	
+	output = check_lose(size, input);
+	if(!output) 
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("FAILED! Expected output is 0 but actual output is 1.\n");
+	
+	reset(size, input);
+	tile_counter(-tile_counter(0));
+	
+	//board full, no same value
+	printf("Test Case: board full, no same value, game over\n");
+	for(i = 0; i < size; i++)
+		for(j = 0; j < size; j ++)
+			input[i][j] = (i+1)*(j+1);
+	tile_counter(size*size);
+	printf("Input:\n");
+	board_display(size, input);
+	
+	output = check_lose(size, input);
+	if(output) 
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("FAILED! Expected output is 1 but actual output is 0.\n");
+	
+	reset(size, input);
+	tile_counter(-tile_counter(0));
+	
+	//done testing, deallocate memory
+	free(input);
+	printf("\n");
 }
 
 
