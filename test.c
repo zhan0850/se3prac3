@@ -464,7 +464,183 @@ void test_check_lose()
 
 void test_check_win()
 {
-	//
+	//the game does not use a separate function to check win, win is checked in tilt functions, see files main.c & tilt.c for more details
+	//initialise input array
+	int size = 4;
+	int **input = board_create(size);
+	int i, output;
+	
+	//begin testing
+	printf("Test Win:\n");
+	
+	//not win
+	printf("Not win test cases\n");
+	
+	//tilt left
+	for(i = 0; i < size*size; i++)
+		board_spawn_tile(size, input);
+	
+	printf("Test Case: not win after tilt left\nOriginal input:\n");
+	board_display(size, input);
+	
+	printf("Input after tilt left\n");
+	output = tilt_board_left(size, input);
+	board_display(size, input);
+	
+	printf("Possible outputs:\n0 - invalid move (0.00000086 chance (see board_spawn_tile function), so you win a big prize if you fail the test)\n1 - valid but not win (expected output)\n2 - win (you fail the test, but this is not gonna happen)\n");
+	if(output == 1) 
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("Failed. Expected output is 1, but actual output is %d.\n", output);
+	if(output == 0)
+		printf("Although you failed the test, but there's only 0.00000086 chance you get a 0 in this test. Congrats!");
+	
+	reset(size, input);
+	tile_counter(-tile_counter(0));
+	
+	//tilt right
+	for(i = 0; i < size*size; i++)
+		board_spawn_tile(size, input);
+	
+	printf("Test Case: not win after tilt right\nOriginal input:\n");
+	board_display(size, input);
+	
+	printf("Input after tilt right\n");
+	output = tilt_board_right(size, input);
+	board_display(size, input);
+	
+	printf("Possible outputs:\n0 - invalid move (0.00000086 chance (see board_spawn_tile function), so you win a big prize if you fail the test)\n1 - valid but not win (expected output)\n2 - win (you fail the test, but this is not gonna happen)\n");
+	if(output == 1) 
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("Failed. Expected output is 1, but actual output is %d.\n", output);
+	if(output == 0)
+		printf("Although you failed the test, but there's only 0.00000086 chance you get a 0 in this test. Congrats!");
+	
+	reset(size, input);
+	tile_counter(-tile_counter(0));
+	
+	//tilt up
+	for(i = 0; i < size*size; i++)
+		board_spawn_tile(size, input);
+	
+	printf("Test Case: not win after tilt up\nOriginal input:\n");
+	board_display(size, input);
+	
+	printf("Input after tilt up\n");
+	output = tilt_board_up(size, input);
+	board_display(size, input);
+	
+	printf("Possible outputs:\n0 - invalid move (0.00000086 chance (see board_spawn_tile function), so you win a big prize if you fail the test)\n1 - valid but not win (expected output)\n2 - win (you fail the test, but this is not gonna happen)\n");
+	if(output == 1) 
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("Failed. Expected output is 1, but actual output is %d.\n", output);
+	if(output == 0)
+		printf("Although you failed the test, but there's only 0.00000086 chance you get a 0 in this test. Congrats!");
+	
+	reset(size, input);
+	tile_counter(-tile_counter(0));
+
+	//tilt down
+	for(i = 0; i < size*size; i++)
+		board_spawn_tile(size, input);
+	
+	printf("Test Case: not win after tilt down\nOriginal input:\n");
+	board_display(size, input);
+	
+	printf("Input after tilt down\n");
+	output = tilt_board_down(size, input);
+	board_display(size, input);
+	
+	printf("Possible outputs:\n0 - invalid move (0.00000086 chance (see board_spawn_tile function), so you win a big prize if you fail the test)\n1 - valid but not win (expected output)\n2 - win (you fail the test, but this is not gonna happen)\n");
+	if(output == 1) 
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("Failed. Expected output is 1, but actual output is %d.\n", output);
+	if(output == 0)
+		printf("Although you failed the test, but there's only 0.00000086 chance you get a 0 in this test. Congrats!");
+	
+	reset(size, input);
+	tile_counter(-tile_counter(0));
+
+	//win
+	printf("Win test cases\n");
+	
+	//tilt left
+	input[0][0] = input[1][0] = 1024;
+	
+	printf("Test Case: win after tilt left\nOriginal input:\n");
+	board_display(size, input);
+	
+	printf("Input after tilt left\n");
+	output = tilt_board_left(size, input);
+	board_display(size, input);
+	
+	printf("Possible outputs:\n0 - invalid move (actually not possible since the values are set)\n1 - valid but not win (you fail the test)\n2 - win (expected output)\n");
+	if(output == 2) 
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("Failed. Expected output is 2, but actual output is %d.\n", output);
+		
+	reset(size, input);
+	
+	//tilt right
+	input[0][0] = input[1][0] = 1024;
+	
+	printf("Test Case: win after tilt right\nOriginal input:\n");
+	board_display(size, input);
+	
+	printf("Input after tilt right\n");
+	output = tilt_board_right(size, input);
+	board_display(size, input);
+	
+	printf("Possible outputs:\n0 - invalid move (actually not possible since the values are set)\n1 - valid but not win (you fail the test)\n2 - win (expected output)\n");
+	if(output == 2) 
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("Failed. Expected output is 2, but actual output is %d.\n", output);
+	
+	reset(size, input);
+	
+	//tilt up
+	input[0][0] = input[0][1] = 1024;
+	
+	printf("Test Case: win after tilt up\nOriginal input:\n");
+	board_display(size, input);
+	
+	printf("Input after tilt up\n");
+	output = tilt_board_up(size, input);
+	board_display(size, input);
+	
+	printf("Possible outputs:\n0 - invalid move (actually not possible since the values are set)\n1 - valid but not win (you fail the test)\n2 - win (expected output)\n");
+	if(output == 2) 
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("Failed. Expected output is 2, but actual output is %d.\n", output);
+	
+	reset(size, input);
+	
+	//tilt down
+	input[0][0] = input[0][1] = 1024;
+	
+	printf("Test Case: win after tilt down\nOriginal input:\n");
+	board_display(size, input);
+	
+	printf("Input after tilt down\n");
+	output = tilt_board_down(size, input);
+	board_display(size, input);
+	
+	printf("Possible outputs:\n0 - invalid move (actually not possible since the values are set)\n1 - valid but not win (you fail the test)\n2 - win (expected output)\n");
+	if(output == 2) 
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("Failed. Expected output is 2, but actual output is %d.\n", output);
+	
+	reset(size, input);
+	
+	//done testing, deallocate memory
+	free(input);
 	
 }
 
