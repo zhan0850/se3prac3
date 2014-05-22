@@ -34,3 +34,23 @@ int board_display(int size,int **board)
   return 0;
 }
 
+void board_spawn_tile(int size,int **board) {
+	int col, row;
+	
+	//find an empty spot
+	do {
+		col = random()%size;
+		row = random()%size;
+	}
+	while(board[col][row]);
+	
+	//fill something into the spot
+	int rand = random()%5;	//1/5 chance to have a 4, 4/5 chance to have a 2
+	if(rand == 4)
+		board[col][row] = 4;
+	else
+		board[col][row] = 2;
+		
+	tile_counter(1);
+	
+}
