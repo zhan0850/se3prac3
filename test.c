@@ -464,7 +464,7 @@ void test_check_lose()
 
 void test_check_win()
 {
-	
+	//
 	
 }
 
