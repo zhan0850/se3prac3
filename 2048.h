@@ -10,6 +10,8 @@ int read_input();
 
 int **board_create(int size);
 int board_display(int size,int **board);
+int parse_input(char *line);
+int read_input();
 void board_spawn_tile(int size,int **board);
 int tile_counter(int adder);
 int tilt_board_left(int size,int **board);
