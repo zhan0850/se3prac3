@@ -28,7 +28,10 @@ void test_tilt_left();
 void test_tilt_right();
 void test_tilt_up();
 void test_tilt_down();
-
+void test_board_spawn_tile();
+void test_tile_counter();
+void test_check_lose();
+void test_check_win();
 
 
 
