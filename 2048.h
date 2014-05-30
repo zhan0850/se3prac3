@@ -25,7 +25,9 @@ int check_win(int size, int **board);
 
 //functions in test file
 void test_tilt_left();
-
+void test_tilt_right();
+void test_tilt_up();
+void test_tilt_down();
 
 
 
