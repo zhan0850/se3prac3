@@ -23,6 +23,12 @@ int check_lose(int size, int **board);
 int check_win(int size, int **board);
 
 
+//functions in test file
+void test_tilt_left();
+
+
+
+
 
 //not used
 int combine_tiles(int length,int *line,int offset);
