@@ -33,7 +33,7 @@ void test_board_spawn_tile();
 void test_tile_counter();
 void test_check_lose();
 void test_check_win();
-
+void reset(int size, int **board);
 
 
 //not used
