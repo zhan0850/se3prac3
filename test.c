@@ -260,6 +260,23 @@ void test_board_spawn_tile()
 	tile_counter(-tile_counter(0));
 	free(input);
 	
+	printf("Test Case: location should be an empty spot\n");
+	//initialise input array
+	int size = 2;
+	int **input = board_create(size);
+	input[0][0] = input[1][1] = 8;
+	
+	board_spawn_tile(size, input);
+	
+	if(input[0][0] == 8 && input[1][1] == 8)
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("FAILED! Expected output is 2 or 4, but actual output is %d.\n", input[0][0]);
+	
+	//reset counter, deallocate memory
+	tile_counter(-tile_counter(0));
+	free(input);
+	
 	printf("\n");
 }
 
