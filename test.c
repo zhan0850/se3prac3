@@ -262,8 +262,8 @@ void test_board_spawn_tile()
 	
 	printf("Test Case: location should be an empty spot\n");
 	//initialise input array
-	int size = 2;
-	int **input = board_create(size);
+	size = 2;
+	input = board_create(size);
 	input[0][0] = input[1][1] = 8;
 	
 	board_spawn_tile(size, input);
