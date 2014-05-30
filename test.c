@@ -241,12 +241,13 @@ void tilt_test(char *msg, int func(int, int**), int size, int **input, int **out
 
 void test_board_spawn_tile()
 {
+	//begin testing
+	printf("Test Spawn Tile:\n");
+	
+	printf("Test Case: value should be 2 or 4\n");
 	//initialise input array
 	int size = 1;
 	int **input = board_create(size);
-	
-	//begin testing
-	printf("Test Spawn Tile:\n");
 	
 	board_spawn_tile(size, input);
 	
@@ -255,9 +256,10 @@ void test_board_spawn_tile()
 	else
 		printf("FAILED! Expected output is 2 or 4, but actual output is %d.\n", input[0][0]);
 	
-	//done testing, reset counter, deallocate memory
+	//reset counter, deallocate memory
 	tile_counter(-tile_counter(0));
 	free(input);
+	
 	printf("\n");
 }
 
