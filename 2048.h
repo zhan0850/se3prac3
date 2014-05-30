@@ -28,6 +28,7 @@ void test_tilt_left();
 void test_tilt_right();
 void test_tilt_up();
 void test_tilt_down();
+void tilt_test(char *msg, int func(int, int**), int size, int **input, int **output);
 void test_board_spawn_tile();
 void test_tile_counter();
 void test_check_lose();
