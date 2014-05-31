@@ -19,12 +19,12 @@ void whiteboxtest_lose() {
 	//initialise input array
 	int size = 4;
 	int **input = board_create(size);
-	int i, output;
+	int i, j, output;
 	
 	//begin testing
 	printf("White Box Test Lose:\n");
 	
-	//TEST CASE: tiles < size*size
+	//TEST CASE
 	printf("TEST CASE: tiles < size*size && random tiles\n");
 	for(i = 0; i < size*size-1; i++)
 		board_spawn_tile(size, input);
@@ -40,7 +40,27 @@ void whiteboxtest_lose() {
 	reset(size, input);
 	tile_counter(-tile_counter(0));
 	
+	//TEST CASE
+	printf("TEST CASE: tiles < size*size && row equality\n");
+	for(i = 0; i < size; i++)
+		for(j = 0; j < size; j ++)
+			input[i][j] = (i+1)*(j+1);
+	input[size-1][size-1] = 0;
+	input[1][1] = input[2][1] = 512;
+	tile_counter(size*size-1);
+	printf("Input:\n");
+	board_display(size, input);
+	
+	output = check_lose(size, input);
+	if(!output) 
+		printf("PASSED. Actual output matches expected output.\n");
+	else
+		printf("FAILED! Expected output is 0 but actual output is 1.\n");
+	
+	reset(size, input);
+	tile_counter(-tile_counter(0));
 		
+	
 	free(input);
 	printf("\n");
 
