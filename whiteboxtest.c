@@ -164,6 +164,24 @@ void whiteboxtest_lose() {
 	tile_counter(-tile_counter(0));
 	printf("\n");
 	
+	//TEST CASE
+	printf("TEST CASE: tiles == size*size && board wide inequality, game over\n");
+	for(i = 0; i < size; i++)
+		for(j = 0; j < size; j ++)
+			input[i][j] = (i+1)*(j+1);
+	tile_counter(size*size);
+	printf("Input:\n");
+	board_display(size, input);
+	
+	output = check_lose(size, input);
+	if(output) 
+		printf("Output: game over\nPASSED. Actual output matches expected output.\n");
+	else
+		printf("Output: not lost\nFAILED! Expected output is 1 but actual output is 0.\n");
+	
+	reset(size, input);
+	tile_counter(-tile_counter(0));
+	printf("\n");
 
 	free(input);
 	printf("\n");
