@@ -12,6 +12,7 @@ int main(int argc,char **argv)
 	printf("Begin White Box Testing\n\n");
 	
 	whiteboxtest_lose();
+	whiteboxtest_win();
 	
 	printf("End White Box Testing\n");
 	
@@ -185,7 +186,99 @@ void whiteboxtest_lose() {
 
 	free(input);
 	printf("\n");
+}
 
+
+void whiteboxtest_win() {
+	//initialise input array
+	int size = 4;
+	int **input = board_create(size);
+	int i, output;
+	
+	//begin testing
+	printf("Test Win:\n");
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_left: no tiles combined, no 2048\n");
+	
+	
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_left: tiles combined, no 2048\n");
+	
+	
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_left: no tiles combined, has 2048\n");
+	
+	
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_left: tiles combined, become 2048\n");
+	
+	
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_right: no tiles combined, no 2048\n");
+	
+	
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_right: tiles combined, no 2048\n");
+	
+	
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_right: no tiles combined, has 2048\n");
+	
+	
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_right: tiles combined, become 2048\n");
+	
+	
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_up: no tiles combined, no 2048\n");
+	
+	
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_up: tiles combined, no 2048\n");
+	
+	
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_up: no tiles combined, has 2048\n");
+	
+	
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_up: tiles combined, become 2048\n");
+	
+	
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_down: no tiles combined, no 2048\n");
+	
+	
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_down: tiles combined, no 2048\n");
+	
+	
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_down: no tiles combined, has 2048\n");
+	
+	
+	
+	//TEST CASE
+	printf("TEST CASE: tilt_down: tiles combined, become 2048\n");
+	
+	
+	
+	
 }
 
 
