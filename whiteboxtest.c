@@ -27,7 +27,7 @@ void test_counter_and_lose() {
 	int i, j, output;
 	
 	//begin testing
-	printf("Test Lose:\n");
+	printf("Test tile_counter and check_lose:\n");
 	
 	//TEST CASE
 	printf("TEST CASE: tiles < size*size && random inputs, game not lost\n");
@@ -196,7 +196,7 @@ void test_tilt_and_win() {
 	int i, j, output;
 	
 	//begin testing
-	printf("Test Win:\n");
+	printf("Test all tilt_boards and check_win:\n");
 	
 	//TEST CASE
 	printf("TEST CASE: tilt_left, no tiles combined, no 2048, not won\n");
