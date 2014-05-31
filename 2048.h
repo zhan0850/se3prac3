@@ -37,8 +37,8 @@ void reset(int size, int **board);
 
 
 //functions in whiteboxtest.c
-void whiteboxtest_lose();
-void whiteboxtest_win();
+void test_counter_and_lose();
+void test_tilt_and_win();
 
 
 //not used
