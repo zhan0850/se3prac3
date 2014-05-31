@@ -36,6 +36,10 @@ void test_check_win();
 void reset(int size, int **board);
 
 
+//functions in whiteboxtest.c
+void whiteboxtest_lose();
+
+
 //not used
 int combine_tiles(int length,int *line,int offset);
 int tilt_through_empty_space(int length, int *line);
