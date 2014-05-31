@@ -11,8 +11,8 @@ int main(int argc,char **argv)
 	
 	printf("Begin White Box Testing\n\n");
 	
-	whiteboxtest_lose();
-	whiteboxtest_win();
+	test_counter_and_lose();
+	test_tilt_and_win();
 	
 	printf("End White Box Testing\n");
 	
@@ -20,7 +20,7 @@ int main(int argc,char **argv)
 }
 
 
-void whiteboxtest_lose() {
+void test_counter_and_lose() {
 	//initialise input array
 	int size = 4;
 	int **input = board_create(size);
@@ -189,7 +189,7 @@ void whiteboxtest_lose() {
 }
 
 
-void whiteboxtest_win() {
+void test_tilt_and_win() {
 	//initialise input array
 	int size = 4;
 	int **input = board_create(size);
