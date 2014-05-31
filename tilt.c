@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "2048.h"
 
-/*
+/***************************************
 int tilt_line_left(int length,int *line)
 {
   // make sure vector length is sensible
@@ -15,7 +15,7 @@ int tilt_line_left(int length,int *line)
 
   return 0;
 }
-*/
+****************************************/
 
 int tilt_board_left(int size,int **board) {
 	// make sure vector length is sensible
