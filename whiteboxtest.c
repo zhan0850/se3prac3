@@ -548,7 +548,27 @@ void whiteboxtest_win() {
 	
 	//TEST CASE
 	printf("TEST CASE: tilt_down: tiles combined, become 2048, won\n");
+	for(i = 0; i < size; i++)
+		for(j = 0; j < size-2; j ++) {
+			input[i][j] = (i+1)*(j+1);
+			tile_counter(1);
+	}
+	input[0][0] = input[0][1] = 1024;
+	printf("Input:\n");
+	board_display(size, input);
 	
+	output = tilt_board_down(size, input);
+	printf("Output:\n");
+	board_display(size, input);
+	
+	if(output == 2) 
+		printf("Won\nPASSED. Actual output matches expected output.\n");
+	else
+		printf("Not won\nFAILED! Expected output is 0 or 1 but actual output is 2.\n");
+	
+	reset(size, input);
+	tile_counter(-tile_counter(0));
+	printf("\n");
 	
 	
 	free(input);
